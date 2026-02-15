@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rentas ISSI - Pago</title>
+  <style>
+    /* Reset y estilo base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #111111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      background: #f9f9f9;
+      padding: 40px 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .card-number {
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      background: #ffffff;
+      padding: 15px 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      user-select: all;
+    }
+
+    .btn-copy {
+      display: inline-block;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background-color: #111111;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-bottom: 15px;
+    }
+
+    .btn-copy:hover {
+      background-color: #333333;
+    }
+
+    .copied-msg {
+      font-size: 0.95rem;
+      color: #28a745;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .info {
+      font-size: 0.95rem;
+      color: #111111;
+      line-height: 1.5;
+    }
+
+    .info span {
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 15px;
+      }
+      .card-number {
+        font-size: 1.2rem;
+      }
+      .btn-copy {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Rentas ISSI - Pago</h1>
+    
+    <div class="card-number" id="cardNumber">5101 2546 0906 4274</div>
+    
+    <button class="btn-copy" onclick="copyCard()">Copiar número</button>
+    <div class="copied-msg" id="copiedMsg">Número copiado ✅ Pega en tu app bancaria</div>
+    
+    <div class="info">
+      <p><span>Banco:</span> nu</p>
+      <p><span>Nombre del titular:</span> jose gonzalez</p>
+    </div>
+  </div>
+
+  <script>
+    function copyCard() {
+      const cardText = document.getElementById('cardNumber').innerText;
+      navigator.clipboard.writeText(cardText).then(() => {
+        const msg = document.getElementById('copiedMsg');
+        msg.style.display = 'block';
+        setTimeout(() => {
+          msg.style.display = 'none';
+        }, 3000);
+      }).catch(err => {
+        alert('No se pudo copiar el número. Intenta manualmente.');
+      });
+    }
+  </script>
+</body>
+</html>
+ 
