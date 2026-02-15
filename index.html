@@ -73,6 +73,12 @@
       box-shadow: 0 0 12px rgba(255,255,255,0.2);
       transition: all 0.3s ease;
       cursor: pointer;
+
+      /* Evitar que el número se vuelva azul en móviles o Safari */
+      -webkit-touch-callout: none;
+      -webkit-user-select: all;
+      -webkit-text-fill-color: #111111;
+      text-decoration: none;
     }
 
     .card-number:hover {
